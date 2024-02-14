@@ -33,3 +33,7 @@ You can use the following command communicate to hd44780, it will transmit the d
 ```
 echo string > /dev/PL2303_driver
 ```
+And if receive the data, it will show at the kernel message
+```
+dmesg
+```
