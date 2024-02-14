@@ -1,4 +1,4 @@
-# hd44780 i2c for linux
+# PL2303 uart for linux
 
 hardware : PL2303
 
