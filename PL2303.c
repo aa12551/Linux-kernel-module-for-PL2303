@@ -77,7 +77,7 @@ serdev_error:
 
 static void serdev_echo_remove(struct serdev_device *serdev) 
 {
-	serdev_device_driver_unregister(&serdev_echo_driver);}
+	serdev_device_driver_unregister(&serdev_echo_driver);
         serdev_device_close(serdev);
 }
 
