@@ -75,8 +75,10 @@ serdev_error:
         return 0;
 }
 
-static void serdev_echo_remove(struct serdev_device *serdev) {
-	serdev_device_close(serdev);
+static void serdev_echo_remove(struct serdev_device *serdev) 
+{
+	serdev_device_driver_unregister(&serdev_echo_driver);}
+        serdev_device_close(serdev);
 }
 
 static ssize_t serdev_write(struct file *file, const char __user *buf, 
@@ -146,9 +148,7 @@ static void __exit my_exit(void) {
         device_destroy(uart_class, dev);
         class_destroy(uart_class);
         unregister_chrdev_region(dev, 1);
-	serdev_device_driver_unregister(&serdev_echo_driver);
 }
-
 MODULE_LICENSE("GPL");
 MODULE_AUTHOR("David");
 MODULE_DESCRIPTION("UART driver about PL2303");
