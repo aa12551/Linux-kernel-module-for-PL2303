@@ -7,6 +7,12 @@ distribution : ubuntu for raspberry pi
 version : 22.04
 
 baudrate : 9600
+## wiring
+```
+          -- TX       GPIO15(RXD) --
+PL2303    -- RX       GPIO14(TXD) --   Raspi
+          -- GND      GND         --
+```
 ## Usage
 First, you need to run the makefile.  It will generate the `.ko` `.dtbo` file.
 ```
@@ -16,7 +22,7 @@ Then, we need to add the device to device tree
 ```
 cp PL2303.dtbo /boot/firmware/overlays/
 ```
-And modify the /boot/firmware/config.txt  Add the following command to config.txt
+And modify the `/boot/firmware/config.txt`  Add the following command to `config.txt`
 
 (In raspberry, uart will conflict bluetooth. We need to close bluetooth that we an use uart)
 ```
